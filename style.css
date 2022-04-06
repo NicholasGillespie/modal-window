@@ -1,0 +1,73 @@
+
+
+/* RESET **************************************** */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0 solid;
+  word-break: break-word;
+}
+
+/* ROOT **************************************** */
+:root {
+  /* Font-family */
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+
+  /* Modular scale */
+  /* 1em | 0.75em  | 0.563em | 0.422em | 0.317em | 0.238em */
+  /* 1em | 1.333em | 1.777em | 2.369em | 3.157em | 4.209em */
+  --ratio: 1.333;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0:calc(1rem + 0.333vw);
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+
+  /* Sizes */
+  --max-inline-size: 1080px;
+  --min-inline-size: 320px;
+  --line-height: 1.5;
+
+  /* Paddings */
+  --padding-composition: var(--s2);
+  --padding-box: var(--s1);
+  --padding-element: var(--s0);
+
+  /* Colors */
+  --clr-light: white;
+  --clr-mid: lightgrey;
+  --clr-dark: black;
+
+  /* border */
+  --border-clr: var(--clr-black);
+  --border-style: solid;
+  --border-width: 7px;
+  --border: var(--border-clr) var(--border-style) var(--border-width);
+}
+
+/* GLOBAL **************************************** */
+body {
+  overflow-x: hidden;
+  min-inline-size: var(--min-inline-size);
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  font-family: var(--font-sans-serif);
+  line-height: var(--line-height);
+  word-break: break-word;
+}
+
+/* COMPOSITION **************************************** */
+
+/* UTILITIES **************************************** */
+
+/* BLOCK **************************************** */
