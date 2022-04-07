@@ -26,7 +26,7 @@
   --s-3: calc(var(--s-2) / var(--ratio));
   --s-2: calc(var(--s-1) / var(--ratio));
   --s-1: calc(var(--s0) / var(--ratio));
-  --s0:calc(1rem + 0.333vw);
+  --s0:calc(0.75rem + 0.333vw);
   --s1: calc(var(--s0) * var(--ratio));
   --s2: calc(var(--s1) * var(--ratio));
   --s3: calc(var(--s2) * var(--ratio));
@@ -34,7 +34,7 @@
   --s5: calc(var(--s4) * var(--ratio));
 
   /* Sizes */
-  --max-inline-size: 1080px;
+  --max-inline-size: 1280px;
   --min-inline-size: 320px;
   --line-height: 1.5;
 
@@ -53,21 +53,103 @@
   --border-style: solid;
   --border-width: 7px;
   --border: var(--border-clr) var(--border-style) var(--border-width);
+  --border-radius: var(--s5);
 }
 
 /* GLOBAL **************************************** */
 body {
   overflow-x: hidden;
+  height: 100vh;
   min-inline-size: var(--min-inline-size);
   background-color: var(--clr-light);
+  background: linear-gradient(to top left, #28b487, #7dd56f);
   color: var(--clr-dark);
   font-family: var(--font-sans-serif);
   line-height: var(--line-height);
   word-break: break-word;
 }
 
+h1 {
+  font-size: var(--s3);
+  margin-bottom: var(--s2);
+}
+
+p {
+  font-size: var(--s2);
+}
+
 /* COMPOSITION **************************************** */
+.container {
+  padding-inline: max(
+    var(--padding-composition),
+    50vw - var(--max-inline-size) / 2
+  );
+  padding-block: var(--padding-composition);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space, 2rem);
+  --justify: flex-start;
+  justify-content: var(--justify);
+  align-items: center;
+}
 
 /* UTILITIES **************************************** */
 
 /* BLOCK **************************************** */
+
+button {
+  font-size: var(--s2);
+  padding: var(--s1) var(--s3);
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  border: none;
+  border-radius: var(--border-radius);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
