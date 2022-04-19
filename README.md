@@ -14,4 +14,6 @@ Options de fermerture du modal :
 1.  En cliquant sur l'overlay.
 1.  En appuyant sur le bouton ESC
 
+![Webpage screenshot](/images/screenshot.jpg)
+
 ## _Voilii!_
